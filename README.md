@@ -65,6 +65,7 @@ cd ../frontend
 Serve the frontend using a local server. For example, use Python's built-in HTTP server:
 ```bash
 python -m http.server 8000
+or php -S localhost:8000
 ```
 The frontend will be accessible at [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
