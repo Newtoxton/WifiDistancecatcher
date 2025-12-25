@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 use App\Services\WifiScanService;
 use App\Services\DistanceCalculatorService;
 
@@ -105,7 +106,7 @@ class WifiScanController extends Controller
             Storage::disk('wasabi')->put($filename, json_encode($data, JSON_PRETTY_PRINT));
         } catch (\Exception $e) {
             // Log error but don't fail the request
-            \Log::error('Failed to store scan to Wasabi: ' . $e->getMessage());
+            Log::error('Failed to store scan to Wasabi: ' . $e->getMessage());
         }
     }
     
@@ -130,7 +131,7 @@ class WifiScanController extends Controller
             Storage::disk('wasabi')->put($filename, json_encode($data, JSON_PRETTY_PRINT));
         } catch (\Exception $e) {
             // Log error but don't fail the request
-            \Log::error('Failed to store calculation to Wasabi: ' . $e->getMessage());
+            Log::error('Failed to store calculation to Wasabi: ' . $e->getMessage());
         }
     }
 }
